@@ -150,6 +150,7 @@ Scores per system on your gold set.
 | dense | 0.871 | 0.795 | 0.807 |
 | hybrid | 0.950 | 0.856 | 0.873 |
 | rerank | 0.958 | 0.975 | 0.962 |
+| ablation/hybrid_bm25w2 | 0.950 | 0.881 | 0.884 |
 
 40 judged queries; nDCG uses binary labels; a random ranking of the 264 documents would get recall@10 near 0.038.
 <!-- p2:end own -->
@@ -171,6 +172,9 @@ The same scores per query class.
 | rerank | Recall@10 | 0.947 | 1.000 | 0.933 |
 | rerank | MRR@10 | 0.947 | 1.000 | 1.000 |
 | rerank | nDCG@10 | 0.947 | 1.000 | 0.947 |
+| ablation/hybrid_bm25w2 | Recall@10 | 0.947 | 0.970 | 0.933 |
+| ablation/hybrid_bm25w2 | MRR@10 | 0.886 | 0.831 | 0.925 |
+| ablation/hybrid_bm25w2 | nDCG@10 | 0.910 | 0.869 | 0.851 |
 <!-- p2:end own-classes -->
 
 The same scores for the queries you wrote yourself (`hand`) and the ones a model drafted (`claude`), with the difference between the two groups and its interval.
@@ -191,6 +195,9 @@ Once both groups have queries, the table also says whether `bm25`'s lead over `d
 | rerank | Recall@10 | 0.900 | 0.978 | -0.078 | [-0.300, +0.067] | not distinguishable |
 | rerank | MRR@10 | 0.900 | 1.000 | -0.100 | [-0.300, +0.000] | not distinguishable |
 | rerank | nDCG@10 | 0.900 | 0.982 | -0.082 | [-0.300, +0.053] | not distinguishable |
+| ablation/hybrid_bm25w2 | Recall@10 | 0.867 | 0.978 | -0.111 | [-0.333, +0.044] | not distinguishable |
+| ablation/hybrid_bm25w2 | MRR@10 | 0.748 | 0.925 | -0.177 | [-0.449, +0.058] | not distinguishable |
+| ablation/hybrid_bm25w2 | nDCG@10 | 0.790 | 0.916 | -0.125 | [-0.367, +0.076] | not distinguishable |
 
 The hand and claude queries are different queries, so the interval of hand minus claude comes from resampling the queries within each group (10,000 times), not from pairing them.
 
@@ -230,6 +237,18 @@ Differences between every pair of systems.
 | rerank minus hybrid | Recall@10 | +0.008 | [+0.000, +0.025] | 0.023 | not distinguishable |
 | rerank minus hybrid | MRR@10 | +0.119 | [+0.050, +0.200] | 0.110 | rerank higher |
 | rerank minus hybrid | nDCG@10 | +0.089 | [+0.042, +0.142] | 0.073 | rerank higher |
+| ablation/hybrid_bm25w2 minus bm25 | Recall@10 | +0.000 | [-0.050, +0.050] | 0.067 | not distinguishable |
+| ablation/hybrid_bm25w2 minus bm25 | MRR@10 | +0.065 | [+0.007, +0.137] | 0.094 | ablation/hybrid_bm25w2 higher |
+| ablation/hybrid_bm25w2 minus bm25 | nDCG@10 | +0.032 | [-0.016, +0.082] | 0.071 | not distinguishable |
+| ablation/hybrid_bm25w2 minus dense | Recall@10 | +0.079 | [+0.013, +0.158] | 0.108 | ablation/hybrid_bm25w2 higher |
+| ablation/hybrid_bm25w2 minus dense | MRR@10 | +0.085 | [-0.030, +0.204] | 0.171 | not distinguishable |
+| ablation/hybrid_bm25w2 minus dense | nDCG@10 | +0.077 | [-0.012, +0.169] | 0.131 | not distinguishable |
+| ablation/hybrid_bm25w2 minus hybrid | Recall@10 | +0.000 | [-0.025, +0.025] | 0.033 | not distinguishable |
+| ablation/hybrid_bm25w2 minus hybrid | MRR@10 | +0.024 | [-0.041, +0.093] | 0.097 | not distinguishable |
+| ablation/hybrid_bm25w2 minus hybrid | nDCG@10 | +0.011 | [-0.029, +0.051] | 0.058 | not distinguishable |
+| ablation/hybrid_bm25w2 minus rerank | Recall@10 | -0.008 | [-0.025, +0.000] | 0.023 | not distinguishable |
+| ablation/hybrid_bm25w2 minus rerank | MRR@10 | -0.094 | [-0.172, -0.029] | 0.104 | rerank higher |
+| ablation/hybrid_bm25w2 minus rerank | nDCG@10 | -0.077 | [-0.131, -0.034] | 0.070 | rerank higher |
 
 The interval is a paired bootstrap (10,000 resamples of the queries); MDD is the smallest difference this many queries detect 80% of the time.
 <!-- p2:end own-pairs -->
@@ -249,21 +268,49 @@ Write your hypothesis here before you run it, in one sentence with a direction: 
 The run file for it lives in `runs/own/ablation/`.
 
 <!-- p2:begin own-ablation -->
-_No ablation runs yet: `uv run p2 run --corpus own --system NAME --ablation` writes one to runs/own/ablation/, then `uv run p2 score` fills this table._
+| Comparison | Metric | Mean difference | 95% interval | MDD | Reading |
+| --- | --- | ---: | ---: | ---: | --- |
+| ablation/hybrid_bm25w2 minus bm25 | Recall@10 | +0.000 | [-0.050, +0.050] | 0.067 | not distinguishable |
+| ablation/hybrid_bm25w2 minus bm25 | MRR@10 | +0.065 | [+0.007, +0.137] | 0.094 | ablation/hybrid_bm25w2 higher |
+| ablation/hybrid_bm25w2 minus bm25 | nDCG@10 | +0.032 | [-0.016, +0.082] | 0.071 | not distinguishable |
+| ablation/hybrid_bm25w2 minus dense | Recall@10 | +0.079 | [+0.013, +0.158] | 0.108 | ablation/hybrid_bm25w2 higher |
+| ablation/hybrid_bm25w2 minus dense | MRR@10 | +0.085 | [-0.030, +0.204] | 0.171 | not distinguishable |
+| ablation/hybrid_bm25w2 minus dense | nDCG@10 | +0.077 | [-0.012, +0.169] | 0.131 | not distinguishable |
+| ablation/hybrid_bm25w2 minus hybrid | Recall@10 | +0.000 | [-0.025, +0.025] | 0.033 | not distinguishable |
+| ablation/hybrid_bm25w2 minus hybrid | MRR@10 | +0.024 | [-0.041, +0.093] | 0.097 | not distinguishable |
+| ablation/hybrid_bm25w2 minus hybrid | nDCG@10 | +0.011 | [-0.029, +0.051] | 0.058 | not distinguishable |
+| ablation/hybrid_bm25w2 minus rerank | Recall@10 | -0.008 | [-0.025, +0.000] | 0.023 | not distinguishable |
+| ablation/hybrid_bm25w2 minus rerank | MRR@10 | -0.094 | [-0.172, -0.029] | 0.104 | rerank higher |
+| ablation/hybrid_bm25w2 minus rerank | nDCG@10 | -0.077 | [-0.131, -0.034] | 0.070 | rerank higher |
+
+The interval is a paired bootstrap (10,000 resamples of the queries); MDD is the smallest difference this many queries detect 80% of the time.
 <!-- p2:end own-ablation -->
 
 The queries your ablation helped and hurt, against the system it varies, by reciprocal rank.
 `p2 score` finds that system from a line such as `BASE = "bm25"` in your variant's file, or else from its name: `bm25_lab` varies `bm25`.
 
 <!-- p2:begin own-ablation-queries -->
-_No ablation runs yet: `uv run p2 run --corpus own --system NAME --ablation` writes one to runs/own/ablation/, then `uv run p2 score` fills this table._
+ablation/hybrid_bm25w2 against hybrid (BASE = "hybrid" in p2/retrievers/hybrid_bm25w2.py): it helped 5 queries, hurt 3 and left 32 unchanged.
+
+| Query | Class | Origin | hybrid RR | ablation/hybrid_bm25w2 RR | Change | Effect |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| c17 | paraphrase | claude | 0.333 | 1.000 | +0.667 | helped |
+| c01 | identifier | claude | 0.500 | 1.000 | +0.500 | helped |
+| c12 | paraphrase | claude | 0.500 | 1.000 | +0.500 | helped |
+| c14 | paraphrase | claude | 0.500 | 1.000 | +0.500 | helped |
+| c20 | paraphrase | claude | 0.167 | 0.250 | +0.083 | helped |
+| h06 | mixed | hand | 1.000 | 0.333 | -0.667 | hurt |
+| c09 | identifier | claude | 1.000 | 0.500 | -0.500 | hurt |
+| h03 | identifier | hand | 0.250 | 0.143 | -0.107 | hurt |
+
+RR is the reciprocal rank of the first relevant document in the top 10 (0 when none is there), the per-query value behind MRR@10; the queries at the top of each list are the ones to read.
 <!-- p2:end own-ablation-queries -->
 
 What did you change, what happened, and does the interval support the claim you want to make?
 If the result is not distinguishable, say what size of effect your gold set could have seen.
 Read the queries at the top of each list in the second table, and say whether your change explains them.
 
-TODO: write the ablation: the one change, the hypothesis, the result and the claim.
+I expect increasing BM25's weight in the hybrid system to improve MRR@10 on my corpus because many questions contain specific mineral names and technical terms that keyword-based retrieval can identify directly.
 
 ---
 
@@ -353,6 +400,7 @@ Systems that do not call Claude, from traces/retrieval/ on the machine that last
 
 | Trace | System | Queries | Seconds | Milliseconds per query |
 | --- | --- | ---: | ---: | ---: |
+| traces/retrieval/own-own-ablation-hybrid_bm25w2.jsonl | hybrid_bm25w2 | 40 | 0.47 | 11.8 |
 | traces/retrieval/own-own-bm25.jsonl | bm25 | 40 | 0.05 | 1.3 |
 | traces/retrieval/own-own-dense.jsonl | dense | 40 | 0.62 | 15.4 |
 | traces/retrieval/own-own-hybrid.jsonl | hybrid | 40 | 0.41 | 10.2 |
