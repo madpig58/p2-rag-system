@@ -2,3 +2,45 @@
 # origin is hand when you wrote the query yourself and claude when a model drafted it; at least 10 must be hand.
 # class is a word you choose, for example identifier, paraphrase or mixed as in the shared sets; scores are reported per class.
 # Lines that start with # are comments, so delete these lines or keep them, as you like.
+
+
+h01	mixed	What role does lithium play in the production of batteries?	hand
+h02	mixed	What makes cobalt a valuable resource in today's technology?	hand
+h03	identifier	Where does the United States import most of its copper from?	hand
+h04	mixed	How does recycled aluminum help meet demand in the United States?	hand
+h05	mixed	What industries rely on nickel, and how is it used?	hand
+h06	mixed	What makes rare earth elements essential for modern electronics?	hand
+h07	mixed	What purpose does natural graphite serve in making batteries?	hand
+h08	mixed	How does zinc help prevent steel from rusting?	hand
+h09	mixed	How much gold is produced in the United States, and which states contribute the most?	hand
+h10	mixed	What are some practical applications of silver beyond jewelry and investments?	hand
+c01	identifier	How much Grade-A and gaseous helium was sold in the United States in 2023, and what was it worth?	claude
+c02	identifier	What share of world antimony mine production did China account for in 2022?	claude
+c03	identifier	Sales value of marketable potash at the mine in 2023	claude
+c04	identifier	Natural zeolite production in 2021 and which states mined chabazite and clinoptilolite	claude
+c05	identifier	Average iodine crystal spot price per kilogram in 2021	claude
+c06	identifier	Indium price per kilogram in 2021 after the New York dealer price was discontinued	claude
+c07	identifier	Diatomite production tonnage and processed value in 2023	claude
+c08	identifier	Crude gypsum production in 2022 and the leading producing states	claude
+c09	identifier	Secondary magnesium recovered from old and new scrap in 2022	claude
+c10	identifier	Industrial sand and gravel production and value in 2023	claude
+c11	paraphrase	Which gas that cools hospital imaging magnets is separated from natural gas at plants in Texas and Kansas?	claude
+c12	paraphrase	Element collected from copper refinery residues and used in thin-film solar cells	claude
+c13	paraphrase	What replaced the liquid metal in old fever thermometers?	claude
+c14	paraphrase	Porous volcanic mineral sold for pet litter and livestock feed, mined in Arizona and other western states	claude
+c15	paraphrase	Powder made from fossil algae shells used to filter liquids	claude
+c16	paraphrase	Bog material harvested for potting soil, mostly imported from Canada	claude
+c17	paraphrase	The only U.S. plant making a lightweight structural metal from Great Salt Lake brine	claude
+c18	paraphrase	Leftover material from steelmaking furnaces reused as road aggregate and a cement additive	claude
+c19	paraphrase	Element pumped from underground brines in Arkansas and used to make fire retardants	claude
+c20	paraphrase	Dense drilling fluid made from an alkali metal salt that well operators rent and send back for reprocessing	claude
+c21	mixed	How much of U.S. cobalt consumption comes from scrap?	claude
+c22	mixed	What share of lithium goes into batteries compared with ceramics and glass?	claude
+c23	mixed	Why did U.S. garnet output drop after a mine in Idaho closed?	claude
+c24	mixed	Rare earth mining at Mountain Pass and China's annual mining quota	claude
+c25	mixed	Which countries supply most U.S. imports of palladium and platinum?	claude
+c26	mixed	How much germanium is recycled during optical device manufacturing?	claude
+c27	mixed	What can replace cemented tungsten carbide in cutting tools?	claude
+c28	mixed	Where does U.S. gallium come from now that primary gallium is no longer recovered domestically?	claude
+c29	mixed	Demand for high-purity quartz crucibles from silicon wafer and solar cell production	claude
+c30	mixed	Thallium metal foils produced at a national laboratory in Tennessee	claude
