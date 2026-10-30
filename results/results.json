@@ -791,7 +791,327 @@
           "mdd80": 0.170622,
           "reading": "rerank higher"
         }
-      ]
+      ],
+      "repeats": {
+        "rerank": {
+          "runs": [
+            "runs/shared/rerank.practice.r1.trec",
+            "runs/shared/rerank.practice.r2.trec",
+            "runs/shared/rerank.practice.r3.trec"
+          ],
+          "repeat": [
+            1,
+            2,
+            3
+          ],
+          "values": {
+            "recall@10": [
+              0.725,
+              0.725,
+              0.725
+            ],
+            "mrr@10": [
+              0.75,
+              0.75,
+              0.75
+            ],
+            "ndcg@10": [
+              0.730657,
+              0.730657,
+              0.730657
+            ]
+          },
+          "vs": {
+            "bm25": {
+              "recall@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.1,
+                  "ci95": [
+                    -0.125,
+                    0.325
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.1,
+                  "ci95": [
+                    -0.125,
+                    0.325
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.1,
+                  "ci95": [
+                    -0.125,
+                    0.325
+                  ],
+                  "reading": "not distinguishable"
+                }
+              ],
+              "mrr@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.242857,
+                  "ci95": [
+                    0.009524,
+                    0.47619
+                  ],
+                  "reading": "rerank.r1 higher"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.242857,
+                  "ci95": [
+                    0.009524,
+                    0.47619
+                  ],
+                  "reading": "rerank.r2 higher"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.242857,
+                  "ci95": [
+                    0.009524,
+                    0.47619
+                  ],
+                  "reading": "rerank.r3 higher"
+                }
+              ],
+              "ndcg@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.212347,
+                  "ci95": [
+                    -0.008333,
+                    0.426371
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.212347,
+                  "ci95": [
+                    -0.008333,
+                    0.426371
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.212347,
+                  "ci95": [
+                    -0.008333,
+                    0.426371
+                  ],
+                  "reading": "not distinguishable"
+                }
+              ]
+            },
+            "dense": {
+              "recall@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.166667,
+                  "ci95": [
+                    -0.025,
+                    0.35
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.166667,
+                  "ci95": [
+                    -0.025,
+                    0.35
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.166667,
+                  "ci95": [
+                    -0.025,
+                    0.35
+                  ],
+                  "reading": "not distinguishable"
+                }
+              ],
+              "mrr@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.1875,
+                  "ci95": [
+                    -0.016667,
+                    0.391667
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.1875,
+                  "ci95": [
+                    -0.016667,
+                    0.391667
+                  ],
+                  "reading": "not distinguishable"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.1875,
+                  "ci95": [
+                    -0.016667,
+                    0.391667
+                  ],
+                  "reading": "not distinguishable"
+                }
+              ],
+              "ndcg@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.251045,
+                  "ci95": [
+                    0.062124,
+                    0.43126
+                  ],
+                  "reading": "rerank.r1 higher"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.251045,
+                  "ci95": [
+                    0.062124,
+                    0.43126
+                  ],
+                  "reading": "rerank.r2 higher"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.251045,
+                  "ci95": [
+                    0.062124,
+                    0.43126
+                  ],
+                  "reading": "rerank.r3 higher"
+                }
+              ]
+            },
+            "hybrid": {
+              "recall@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.108333,
+                  "ci95": [
+                    0.025,
+                    0.208542
+                  ],
+                  "reading": "rerank.r1 higher"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.108333,
+                  "ci95": [
+                    0.025,
+                    0.208542
+                  ],
+                  "reading": "rerank.r2 higher"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.108333,
+                  "ci95": [
+                    0.025,
+                    0.208542
+                  ],
+                  "reading": "rerank.r3 higher"
+                }
+              ],
+              "mrr@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.27875,
+                  "ci95": [
+                    0.1275,
+                    0.441281
+                  ],
+                  "reading": "rerank.r1 higher"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.27875,
+                  "ci95": [
+                    0.1275,
+                    0.441281
+                  ],
+                  "reading": "rerank.r2 higher"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.27875,
+                  "ci95": [
+                    0.1275,
+                    0.441281
+                  ],
+                  "reading": "rerank.r3 higher"
+                }
+              ],
+              "ndcg@10": [
+                {
+                  "repeat": 1,
+                  "mean_diff": 0.273849,
+                  "ci95": [
+                    0.159294,
+                    0.395578
+                  ],
+                  "reading": "rerank.r1 higher"
+                },
+                {
+                  "repeat": 2,
+                  "mean_diff": 0.273849,
+                  "ci95": [
+                    0.159294,
+                    0.395578
+                  ],
+                  "reading": "rerank.r2 higher"
+                },
+                {
+                  "repeat": 3,
+                  "mean_diff": 0.273849,
+                  "ci95": [
+                    0.159294,
+                    0.395578
+                  ],
+                  "reading": "rerank.r3 higher"
+                }
+              ]
+            }
+          },
+          "spread": {
+            "recall@10": {
+              "min": 0.725,
+              "max": 0.725,
+              "range": 0.0,
+              "sd": 0.0
+            },
+            "mrr@10": {
+              "min": 0.75,
+              "max": 0.75,
+              "range": 0.0,
+              "sd": 0.0
+            },
+            "ndcg@10": {
+              "min": 0.730657,
+              "max": 0.730657,
+              "range": 0.0,
+              "sd": 0.0
+            }
+          }
+        }
+      }
     },
     "own/own": {
       "corpus": "own",
@@ -2217,6 +2537,36 @@
           "input_tokens": 267338,
           "output_tokens": 2134,
           "seconds": 153.6622
+        },
+        {
+          "file": "traces/shared-practice-rerank.r1.jsonl",
+          "system": "rerank",
+          "spans": 20,
+          "calls": 20,
+          "saved": 0,
+          "input_tokens": 253467,
+          "output_tokens": 1981,
+          "seconds": 145.4794
+        },
+        {
+          "file": "traces/shared-practice-rerank.r2.jsonl",
+          "system": "rerank",
+          "spans": 20,
+          "calls": 20,
+          "saved": 0,
+          "input_tokens": 264152,
+          "output_tokens": 2145,
+          "seconds": 163.2804
+        },
+        {
+          "file": "traces/shared-practice-rerank.r3.jsonl",
+          "system": "rerank",
+          "spans": 20,
+          "calls": 20,
+          "saved": 0,
+          "input_tokens": 266940,
+          "output_tokens": 2129,
+          "seconds": 147.898
         },
         {
           "file": "traces/shared-test-rerank.jsonl",
