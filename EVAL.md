@@ -248,9 +248,12 @@ Systems that do not call Claude, from traces/retrieval/ on the machine that last
 
 | Trace | System | Queries | Seconds | Milliseconds per query |
 | --- | --- | ---: | ---: | ---: |
-| traces/retrieval/shared-practice-bm25.jsonl | bm25 | 20 | 0.04 | 2.1 |
-| traces/retrieval/shared-practice-dense.jsonl | dense | 20 | 0.18 | 9.2 |
-| traces/retrieval/shared-practice-hybrid.jsonl | hybrid | 20 | 0.35 | 17.4 |
+| traces/retrieval/shared-practice-bm25.jsonl | bm25 | 20 | 0.04 | 2.0 |
+| traces/retrieval/shared-practice-dense.jsonl | dense | 20 | 0.22 | 10.8 |
+| traces/retrieval/shared-practice-hybrid.jsonl | hybrid | 20 | 2.77 | 138.6 |
+| traces/retrieval/shared-test-bm25.jsonl | bm25 | 40 | 0.27 | 6.6 |
+| traces/retrieval/shared-test-dense.jsonl | dense | 40 | 4.33 | 108.4 |
+| traces/retrieval/shared-test-hybrid.jsonl | hybrid | 40 | 4.04 | 101.0 |
 <!-- p2:end stretch-cost -->
 
 ### The grep agent (option 5)
