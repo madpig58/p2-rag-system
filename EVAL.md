@@ -312,6 +312,7 @@ Every trace in traces/ that records a Claude call:
 | Trace | System | Spans | Claude calls | Saved | Input tokens | Output tokens | Seconds | Input per span | Output per span | Seconds per span |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | traces/shared-practice-rerank.jsonl | rerank | 20 | 20 | 2 | 267,338 | 2,134 | 153.7 | 13,367 | 107 | 7.7 |
+| traces/shared-test-rerank.jsonl | rerank | 40 | 40 | 0 | 482,520 | 3,911 | 318.1 | 12,063 | 98 | 8.0 |
 
 A span is one query of a run, one question of an answers file, or one claim of a judged file. A saved reply costs nothing now, so it counts the tokens and the seconds of the call that made it.
 

@@ -1811,6 +1811,16 @@
           "input_tokens": 267338,
           "output_tokens": 2134,
           "seconds": 153.6622
+        },
+        {
+          "file": "traces/shared-test-rerank.jsonl",
+          "system": "rerank",
+          "spans": 40,
+          "calls": 40,
+          "saved": 0,
+          "input_tokens": 482520,
+          "output_tokens": 3911,
+          "seconds": 318.0808
         }
       ],
       "run_pairs": [
