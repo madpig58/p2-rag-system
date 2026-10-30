@@ -123,7 +123,17 @@ Which row of the table in section 4 is it?
 Did your gold set reach the size section 3 asked for, and what was the minimum detectable difference that `uv run p2 score` printed?
 What would you do next, and what would you want a reader to take from this?
 
-TODO: your outcome.
+My pre-registered hypothesis predicted that BM25 would outperform Hybrid by at least 0.15 MRR@10 on my USGS corpus. I expected BM25 to perform better because the documents contain specific mineral names, countries, years, and technical terminology that keyword-based retrieval could match directly.
+
+The actual results did not support my prediction. BM25 achieved an MRR@10 of 0.816, while Hybrid achieved 0.856. The observed BM25 minus Hybrid difference was approximately -0.041, which was in the opposite direction from my hypothesis.
+
+The 95% paired bootstrap interval was [-0.133, +0.048]. Since this interval includes zero, I cannot conclude that either system reliably outperformed the other on my gold set. The minimum detectable difference was approximately 0.132, indicating that this evaluation had limited sensitivity to smaller performance differences.
+
+My original prediction was therefore not supported. Although Hybrid achieved a slightly higher observed score, the evidence was insufficient to establish a clear advantage for Hybrid. The interval also did not support the predicted meaningful BM25 advantage of 0.15.
+
+One possible explanation is that semantic retrieval contributed useful information even in a corpus containing many specific technical terms. However, I did not isolate that explanation experimentally, so I cannot claim it as a confirmed cause.
+
+This result reinforced the importance of pre-registration. Rather than changing my hypothesis after seeing the results, I can compare the original expectation with the actual evidence and acknowledge that the outcome was different from what I predicted.
 
 ---
 
